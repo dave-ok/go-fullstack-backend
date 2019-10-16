@@ -72,7 +72,22 @@ app.post('/api/recipes', (req, res, next)=>{
 
 //modify a recipe
 app.put('/api/recipes/:id', (req, res, next)=>{
+    const recipe = new Recipe({
+        title: req.body.title,
+        ingredients: req.body.ingredients,
+        instructions: req.body.instructions,
+        difficulty: req.body.difficulty,
+        time: req.body.time,
+        _id: req.params.id
+    });
 
+    Recipe.updateOne({_id: req.params.id}, recipe)
+    .then(()=>{
+        res.status(200).json({message: 'Recipe updated succesfully'});
+    })
+    .catch((error)=>{
+        res.status(400).json({error: error});
+    })
 });
 
 //delete a recipe
