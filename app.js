@@ -5,7 +5,7 @@ const Recipe = require('./models/recipe');
 
 //connect to MongoDB
 //included options to supress deprecation warnings
-mongoose.connect('mongodb+srv://dave:GlLboGEC7EtuK5Gn@cluster0-3zk7n.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://guest_user:S58MQZHfmvhEMkuV@cluster0-3zk7n.mongodb.net/test?retryWrites=true&w=majority',
     {
         useNewUrlParser: true, 
         useUnifiedTopology: true 
