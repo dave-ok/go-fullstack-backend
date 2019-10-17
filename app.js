@@ -92,7 +92,12 @@ app.put('/api/recipes/:id', (req, res, next)=>{
 
 //delete a recipe
 app.delete('/api/recipes/:id', (req, res, next)=>{
-
+    Recipe.deleteOne({_id: req.params.id}).then(()=>{
+        res.status(200).json({message: 'Recipe deleted!'});
+    })
+    .catch((error)=>{
+        res.status(400).json({error: error});
+    });
 });
 
 
